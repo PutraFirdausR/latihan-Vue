@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <title>instace, method, dan directive</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- messge ini memanggil return message -->
+      <img :src="img" :alt="alt" />
+      <p v-text="message"></p>
+      <p v-html="myhtml"></p>
+      <a :href="mylink">ini link google</a>
+    </div>
+  </body>
+  <script>
+    const App = {
+      data() {
+        return {
+          img: "https://picsum.photos/200/300",
+          alt: "image",
+          myhtml: "<h1>ini html ku </h1>",
+          mylink: "https://goggle.com",
+          message: "Hello world",
+          isItTrue: true,
+          myArray: ["my", "skill", "is", "awesome"],
+        };
+      },
+      methods: {
+        myFunc() {
+          const randomArray =
+            this.myArray[Math.floor(Math.random() * this.myArray.length)];
+          if (this.isItTrue) {
+            return this.myArray[3];
+          }
+          return randomArray;
+        },
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>

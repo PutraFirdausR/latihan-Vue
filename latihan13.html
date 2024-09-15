@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Style</title>
+  </head>
+  <body>
+    <div id="app">
+      <header-apps></header-apps>
+      <user-name></user-name>
+    </div>
+  </body>
+  <script>
+    const App = Vue.createApp({});
+    // component pertama
+    App.component("header-apps", {
+      data() {
+        return {
+          name: "HEADER",
+        };
+      },
+      template: "<div class='box'> {{ name }} </div>",
+    });
+
+    // component kedua
+    App.component("user-name", {
+      data() {
+        return {
+          name: "Putra",
+        };
+      },
+      template: "<div> {{ name }} </div>",
+    });
+    App.mount("#app");
+  </script>
+  <style>
+    .box {
+      background-color: black;
+      color: white;
+      padding: 30px;
+    }
+  </style>
+</html>

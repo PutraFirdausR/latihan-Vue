@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <title>Style</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="box" v-bind:class="colors">this is my box</div>
+      <button v-on:click="colors.white = !colors.white">Change Color</button>
+    </div>
+  </body>
+  <script>
+    const App = {
+      data() {
+        return {
+          colors: {
+            blue: true,
+            white: false,
+          },
+        };
+      },
+      methods: {},
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+  <style>
+    .box {
+      color: white;
+      background-color: rgb(255, 0, 0);
+      padding: 20px;
+    }
+    .blue {
+      background-color: blue;
+    }
+    .white {
+      background-color: white;
+      color: black;
+    }
+    .large {
+      font-size: 40px;
+    }
+  </style>
+</html>

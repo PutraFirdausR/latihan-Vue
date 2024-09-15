@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <title>Style</title>
+  </head>
+  <body>
+    <div id="app">
+      <input v-model.lazy="name" />
+      <button v-on:click="handleActive">active</button>
+      <hr />
+      {{ compMessage }}
+      <hr />
+      {{ compActive }}
+      <hr />
+    </div>
+  </body>
+  <script>
+    const App = {
+      data() {
+        return {
+          name: " ",
+          active: "false",
+        };
+      },
+      computed: {
+        compMessage() {
+          console.log("Computed Message Type Message");
+          return this.name === "Putra" ? "welcome home" : "You are not Allowed";
+        },
+        compActive() {
+          console.log("Computed Active Message");
+          return this.active === true ? "this is Active" : "this is not Active";
+        },
+      },
+      methods: {
+        handleActive() {
+          //   console.log("handle active methods");
+          this.active = !this.active;
+        },
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+  <style>
+    .box {
+      color: white;
+      background-color: rgb(255, 0, 0);
+      padding: 20px;
+    }
+    .blue {
+      background-color: blue;
+    }
+    .white {
+      background-color: white;
+      color: black;
+    }
+    .large {
+      font-size: 40px;
+    }
+  </style>
+</html>

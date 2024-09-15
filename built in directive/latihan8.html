@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <title>V-model</title>
+  </head>
+  <body>
+    <div id="app">
+      <form v-on:submit.prevent="handleForm">
+        <label>First Name</label>
+        <input type="text" v-model.lazy="dataPerson.firstName" />
+        {{ dataPerson.firstName }}
+        <hr />
+
+        <label>Last Name</label>
+        <input type="text" v-model.trim="dataPerson.lastName" />
+        {{ dataPerson.lastName }}
+
+        <hr />
+        <label>Age</label>
+        <input type="teks" v-model.number="dataPerson.age" />
+        {{ dataPerson.age }}
+        <hr />
+
+        <hr />
+        <label>Chekbox</label>
+        <input type="checkbox" id="myCheckbox" v-model="dataPerson.checked" />
+        <button type="submit">submit</button>
+        {{ dataPerson.checked }}
+        <hr />
+      </form>
+    </div>
+  </body>
+  <script>
+    const App = {
+      data() {
+        return {
+          dataPerson: {
+            firstName: "",
+            lastName: "",
+            age: "",
+            checked: false,
+          },
+        };
+      },
+      methods: {
+        handleForm() {
+          console.log(this.dataPerson.firstName);
+          console.log(this.dataPerson.lastName);
+          console.log(this.dataPerson.age);
+          console.log(this.dataPerson.checked);
+        },
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>
